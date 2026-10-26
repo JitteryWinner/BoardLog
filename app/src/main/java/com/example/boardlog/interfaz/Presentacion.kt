@@ -1,4 +1,4 @@
-package com.example.boardlog.ui
+package com.example.boardlog.interfaz
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -21,9 +21,9 @@ private val fondo = Color(0xFFFAF7F2)
 private val verde = Color(0xFF07564C)
 private val fondoBarra = Color(0xFFE1DFDA)
 
-//pantalla splash
+// Pantalla de presentación
 @Composable
-fun Splash(
+fun PresentacionVisual(
     modifier: Modifier = Modifier
 ) {
 
@@ -76,13 +76,13 @@ fun Splash(
     }
 }
 
-//preview
+// Vista previa
 @Preview(
-    name = "Splash",
+    name = "Presentación",
     showBackground = true,
     showSystemUi = true
 )
 @Composable
-private fun SplashPreview() {
-    Splash()
+private fun VistaPreviaPresentacion() {
+    PresentacionVisual()
 }

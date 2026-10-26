@@ -1,4 +1,4 @@
-package com.example.boardlog.ui.theme
+package com.example.boardlog.interfaz.tema
 
 import android.app.Activity
 import android.os.Build
@@ -11,18 +11,18 @@ import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
 
-private val DarkColorScheme = darkColorScheme(
-    primary = Purple80,
-    secondary = PurpleGrey80,
-    tertiary = Pink80
+private val EsquemaOscuro = darkColorScheme(
+    primary = Morado80,
+    secondary = MoradoGrisaceo80,
+    tertiary = Rosa80
 )
 
-private val LightColorScheme = lightColorScheme(
-    primary = Purple40,
-    secondary = PurpleGrey40,
-    tertiary = Pink40
+private val EsquemaClaro = lightColorScheme(
+    primary = Morado40,
+    secondary = MoradoGrisaceo40,
+    tertiary = Rosa40
 
-    /* Other default colors to override
+    /* Otros colores predeterminados que pueden modificarse
     background = Color(0xFFFFFBFE),
     surface = Color(0xFFFFFBFE),
     onPrimary = Color.White,
@@ -34,9 +34,9 @@ private val LightColorScheme = lightColorScheme(
 )
 
 @Composable
-fun BoardLogTheme(
+fun TemaBoardLog(
     darkTheme: Boolean = isSystemInDarkTheme(),
-    // Dynamic color is available on Android 12+
+    // Los colores dinámicos están disponibles desde Android 12.
     dynamicColor: Boolean = true,
     content: @Composable () -> Unit
 ) {
@@ -46,13 +46,13 @@ fun BoardLogTheme(
             if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
         }
 
-        darkTheme -> DarkColorScheme
-        else -> LightColorScheme
+        darkTheme -> EsquemaOscuro
+        else -> EsquemaClaro
     }
 
     MaterialTheme(
         colorScheme = colorScheme,
-        typography = Typography,
+        typography = TipografiaBoardLog,
         content = content
     )
 }
