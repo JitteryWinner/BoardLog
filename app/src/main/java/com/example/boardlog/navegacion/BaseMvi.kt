@@ -16,8 +16,14 @@ abstract class ModeloVistaMvi<S : Any, E : Any>(initial: S) : ViewModel() {
     val estado = _estado.asStateFlow()
     private val _navegacion = Channel<Destino>(Channel.BUFFERED)
     val navegacion = _navegacion.receiveAsFlow()
-    protected fun reducir(block: (S) -> S) { _estado.update(block) }
-    protected fun navegar(destino: Destino) { viewModelScope.launch { _navegacion.send(destino) } }
+    protected fun reducir(block: (S) -> S) {
+        _estado.update(block)
+    }
+
+    protected fun navegar(destino: Destino) {
+        viewModelScope.launch { _navegacion.send(destino) }
+    }
+
     abstract fun alEvento(event: E)
 }
 

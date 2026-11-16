@@ -40,6 +40,7 @@ dependencies {
     implementation("androidx.navigation:navigation-compose:2.9.8")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.9.0")
     implementation("androidx.room:room-runtime:2.8.5")
+    implementation("androidx.datastore:datastore-preferences:1.1.7")
     implementation("androidx.room:room-ktx:2.8.5")
     ksp("androidx.room:room-compiler:2.8.5")
     implementation("androidx.compose.material:material-icons-extended")

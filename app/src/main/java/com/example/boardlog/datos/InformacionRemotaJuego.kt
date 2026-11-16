@@ -12,7 +12,8 @@ object InformacionRemotaJuego {
     suspend fun buscarDescripcion(nombreJuego: String): String? = withContext(Dispatchers.IO) {
         runCatching {
             val busqueda = URLEncoder.encode("$nombreJuego juego de mesa", "UTF-8")
-            val url = URL("https://www.wikidata.org/w/api.php?action=wbsearchentities&search=$busqueda&language=es&format=json&limit=5")
+            val url =
+                URL("https://www.wikidata.org/w/api.php?action=wbsearchentities&search=$busqueda&language=es&format=json&limit=5")
             val conn = (url.openConnection() as HttpURLConnection).apply {
                 requestMethod = "GET"
                 connectTimeout = 5000
@@ -24,9 +25,12 @@ object InformacionRemotaJuego {
                 val json = JSONObject(conn.inputStream.bufferedReader().use { it.readText() })
                 val resultados = json.optJSONArray("search") ?: return@runCatching null
                 (0 until resultados.length()).mapNotNull { i ->
-                    resultados.optJSONObject(i)?.optString("description")?.takeIf { it.isNotBlank() }
+                    resultados.optJSONObject(i)?.optString("description")
+                        ?.takeIf { it.isNotBlank() }
                 }.firstOrNull()
-            } finally { conn.disconnect() }
+            } finally {
+                conn.disconnect()
+            }
         }.getOrNull()
     }
 }

@@ -1,9 +1,9 @@
 package com.example.boardlog.funcionalidades.jugadores
 
-import com.example.boardlog.datos.*
-import com.example.boardlog.navegacion.*
-import kotlinx.coroutines.flow.*
-import kotlinx.coroutines.launch
-import androidx.lifecycle.viewModelScope
+import com.example.boardlog.datos.EntidadJugador
 
-data class EstadoJugadores(val busqueda:String="",val jugadores:List<EntidadJugador> = emptyList(),val jugadoresVisibles:List<EntidadJugador> = emptyList())
+data class EstadoJugadores(
+    val busqueda: String = "",
+    val jugadores: List<EntidadJugador> = emptyList(),
+    val jugadoresVisibles: List<EntidadJugador> = emptyList()
+)

@@ -1,9 +1,11 @@
 package com.example.boardlog.funcionalidades.informacionjuego
 
-import com.example.boardlog.datos.*
-import com.example.boardlog.navegacion.*
-import kotlinx.coroutines.flow.*
-import kotlinx.coroutines.launch
-import androidx.lifecycle.viewModelScope
+import com.example.boardlog.datos.EntidadPartida
+import com.example.boardlog.datos.JuegoMesa
 
-data class EstadoInformacionJuego(val juego:JuegoMesa?=null,val informacionExterna:String?=null,val cargando:Boolean=true, val partidas:List<EntidadPartida> = emptyList())
+data class EstadoInformacionJuego(
+    val juego: JuegoMesa? = null,
+    val informacionExterna: String? = null,
+    val cargando: Boolean = true,
+    val partidas: List<EntidadPartida> = emptyList()
+)
